@@ -1,0 +1,25 @@
+#BlueJ class context
+comment0.target=ResortControl
+comment0.text=\r\n\ interface\ ResortControl\ specifies\ requirements\ for\ 7COM1015\ (Sem\ A)\ 2018\r\n\ \r\n\ @author\ A.Marczyk\ \r\n\ @version\ 09/11/18\r\n
+comment1.params=
+comment1.target=java.lang.String\ toString()
+comment1.text=\r\n\ Returns\ all\ of\ the\ details\ of\ all\ worlds\ including\ the\ cards\r\n\ currently\ on\ each\ world,\ on\ "No\ cards"\r\n\ @return\ all\ of\ the\ details\ of\ all\ worlds\ including\ location\ \r\n\ and\ all\ cards\ currently\ on\ each\ world,\ or\ "No\ cards"\ \r\n
+comment2.params=
+comment2.target=java.lang.String\ getAllCardsOnAllWorlds()
+comment2.text=Returns\ a\ String\ representation\ of\ all\ the\ cards\ on\ all\ worlds\r\n\ @return\ a\ String\ representation\ of\ all\ cards\ on\ all\ worlds\r\n
+comment3.params=tr
+comment3.target=java.lang.String\ findCard(int)
+comment3.text=Returns\ the\ name\ of\ the\ world\ which\ contains\ the\ specified\ card\ or\ null\r\n\ @param\ tr\ -\ the\ specified\ card\r\n\ @return\ the\ name\ of\ the\ World\ which\ contains\ the\ card,\ or\ null\r\n
+comment4.params=ww
+comment4.target=int\ getWorldNumber(java.lang.String)
+comment4.text=\ Given\ the\ name\ of\ a\ world,\ returns\ the\ world\ id\ number\r\n\ or\ -1\ if\ world\ does\ not\ exist\r\n\ @param\ name\ of\ world\r\n\ @return\ id\ number\ of\ world\r\n
+comment5.params=world
+comment5.target=java.lang.String\ getAllCardsOnWorld(java.lang.String)
+comment5.text=Returns\ a\ String\ representation\ of\ all\ the\ cards\ on\ specified\ world\r\n\ @return\ a\ String\ representation\ of\ all\ cards\ on\ specified\ world\r\n
+comment6.params=trId\ shtlCode
+comment6.target=boolean\ canTravel(int,\ java.lang.String)
+comment6.text=Returns\ true\ if\ a\ Card\ is\ allowed\ to\ move\ using\ the\ shuttle,\ false\ otherwise\r\n\ A\ move\ can\ be\ made\ if\:\ \ \r\n\ the\ rating\ of\ the\ card\ \ >\=\ the\ rating\ of\ the\ destination\ world\r\n\ AND\ the\ destination\ world\ is\ not\ full\r\n\ AND\ the\ card\ has\ sufficient\ credits\r\n\ AND\ the\ card\ is\ currently\ in\ the\ source\ world\r\n\ AND\ the\ card\ id\ is\ for\ a\ card\ on\ the\ system\r\n\ AND\ the\ shuttle\ code\ is\ the\ code\ for\ a\ shuttle\ on\ the\ system\r\n\ @param\ trId\ is\ the\ id\ of\ the\ card\ requesting\ the\ move\r\n\ @param\ shtlCode\ is\ the\ code\ of\ the\ shuttle\ journey\ by\ which\ the\ card\ wants\ to\ pCardel\r\n\ @return\ true\ if\ the\ card\ is\ allowed\ on\ the\ shuttle\ journey,\ false\ otherwise\ \r\n
+comment7.params=pCardId\ shtlCode
+comment7.target=java.lang.String\ travel(int,\ java.lang.String)
+comment7.text=Returns\ the\ result\ of\ a\ card\ requesting\ to\ move\ by\ Shuttle.\r\n\ A\ move\ will\ be\ successful\ if\:\ \ \r\n\ the\ luxury\ rating\ of\ the\ card\ \ >\=\ the\ luxury\ rating\ of\ the\ destination\ world\r\n\ AND\ the\ destination\ world\ is\ not\ full\r\n\ AND\ the\ card\ has\ sufficient\ credits\r\n\ AND\ the\ card\ is\ currently\ in\ the\ source\ world\r\n\ AND\ the\ card\ id\ is\ for\ a\ card\ on\ the\ system\r\n\ AND\ the\ shuttle\ code\ is\ the\ code\ for\ a\ shuttle\ on\ the\ system\r\n\ If\ the\ shuttle\ journey\ can\ be\ made,\ the\ card\ information\ is\ removed\ from\ the\ source\r\n\ world,\ added\ to\ the\ destination\ world\ and\ a\ suitable\ message\ returned.\r\n\ If\ shuttle\ journey\ cannot\ be\ made,\ the\ state\ of\ the\ system\ remains\ unchanged\r\n\ and\ a\ message\ specifying\ the\ reason\ is\ returned.\r\n\ @param\ pCardId\ is\ the\ id\ of\ the\ card\ requesting\ the\ move\r\n\ @param\ shtlCode\ is\ the\ code\ of\ the\ shuttle\ journey\ by\ which\ the\ card\ wants\ to\ pCardel\r\n\ @return\ a\ String\ giving\ the\ result\ of\ the\ request\ \r\n
+numComments=8

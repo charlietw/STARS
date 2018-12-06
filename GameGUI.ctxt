@@ -1,0 +1,12 @@
+#BlueJ class context
+comment0.target=GameGUI
+comment0.text=\r\n\ Provide\ a\ GUI\ interface\ for\ the\ resort\r\n\ \r\n\ @author\ A.A.Marczyk\r\n\ @version\ 09/11/18\r\n
+comment1.params=
+comment1.target=GameGUI()
+comment2.params=
+comment2.target=void\ makeFrame()
+comment2.text=\r\n\ Create\ the\ Swing\ frame\ and\ its\ content.\r\n
+comment3.params=frame
+comment3.target=void\ makeMenuBar(javax.swing.JFrame)
+comment3.text=\r\n\ Create\ the\ main\ frame's\ menu\ bar.\r\n
+numComments=4

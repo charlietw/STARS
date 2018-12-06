@@ -1,0 +1,17 @@
+#BlueJ class context
+comment0.target=Shuttle
+comment1.params=code\ origin\ destination
+comment1.target=Shuttle(java.lang.String,\ int,\ int)
+comment2.params=
+comment2.target=java.lang.String\ getCode()
+comment2.text=\r\n\ Returns\ a\ string\ of\ the\ code\ of\ the\ shuttle\r\n\ @return\ a\ string\ of\ the\ code\ of\ the\ shuttle\r\n
+comment3.params=
+comment3.target=int\ getOrigin()
+comment3.text=\r\n\ Returns\ an\ int\ representing\ the\ origin\ world\r\n\ @return\ an\ int\ representing\ the\ origin\ world\r\n
+comment4.params=
+comment4.target=int\ getDestination()
+comment4.text=\r\n\ Returns\ an\ int\ representing\ the\ destination\ world\r\n\ @return\ an\ int\ representing\ the\ destination\ world\r\n
+comment5.params=
+comment5.target=java.lang.String\ toString()
+comment5.text=\r\n\ Prints\ details\ of\ the\ shuttle\ to\ the\ screen\ \r\n\ @return\ details\ of\ the\ shuttle\ to\ the\ screen\ as\ a\ string\r\n
+numComments=6
