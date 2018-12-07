@@ -19,18 +19,11 @@ public class Business extends Card
     {
         return loyaltyPoints;
     }
-    
+      
     public void convertLoyalty()
     {
-        if (loyaltyPoints >= 5)
-        {
-            System.out.println("You have more than 5 credits, well done");
-        }
-        else
-        {
-            System.out.println("Not enough credits!");
-        }
-        
+        addCredits(loyaltyPoints / 5); // adds 1 credit per 5 loyalty points
+        loyaltyPoints = loyaltyPoints % 5; // sets loyalty as the remaining number of points       
     }
     
     /**
@@ -39,7 +32,7 @@ public class Business extends Card
      */
     public boolean hasEnoughCredits()
     {
-        return getCredits() >= 4; // returns true if 'getCredits' returns at least 4
+        return getCredits() >= 3; // returns true if 'getCredits' returns at least 4
     }
     
     public void addLoyalty()
@@ -49,7 +42,7 @@ public class Business extends Card
     
     public void enterShuttle()
     {
-        deductCredits(4);
+        deductCredits(3);
         addLoyalty();
     }
 

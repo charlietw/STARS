@@ -107,7 +107,8 @@ abstract class Card
         return true;
     }
     
-    abstract void enterShuttle(); // need this even though we cannot specify what a 'card' should do as it is abstract
+   
+    abstract void enterShuttle(); // need this even though we cannot specify what a 'card' should do as it is abstract.
     
     /**
      * Prints details of the card to the screen 

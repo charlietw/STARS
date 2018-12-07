@@ -23,10 +23,10 @@ public class ResortUI
             else if (choice == 4){findACard();}
             else if (choice == 5){tryTravel();}
             else if (choice == 6){travelNow();}
-//             else if (choice == 7){updateCredits();}
-//             else if (choice == 8){goHome();}
-//             else if (choice == 9){convertPts();}
-//             else if (choice == 10){evacuate();}
+            else if (choice == 7){updateCredits();}
+            else if (choice == 8){goHome();}
+            else if (choice == 9){convertPts();}
+            else if (choice == 10){evacuate();}
             // output menu & get choice
             choice = getOption();
         }
@@ -44,10 +44,10 @@ public class ResortUI
        System.out.println("4. Find a card");
        System.out.println("5. Say if card can move by shuttle");
        System.out.println("6. Move a card by shuttle");
-//        System.out.println("7. Top up credits");
-//        System.out.println("8. Move a card to home world");
-//        System.out.println("9. Convert points to credits - Business only");
-//        System.out.println("10. Evacuate all");
+       System.out.println("7. Top up credits");
+       System.out.println("8. Move a card to home world");
+       System.out.println("9. Convert points to credits - Business only");
+       System.out.println("10. Evacuate all");
 
        System.out.println("Enter your choice");
        // read choice
@@ -117,28 +117,95 @@ public class ResortUI
         reader.nextLine();
         System.out.println("Enter shuttle code");
         String shuttle = reader.nextLine();
-        wayward.travel(trav,shuttle);
+        if (wayward.assertValidCard(trav))
+        {
+            if (wayward.assertValidShuttle(shuttle))
+            {
+                System.out.println(wayward.travel(trav,shuttle));
+            }
+            else
+            {
+                System.out.println(String.format("%s is not valid shuttle.", shuttle));
+            }
+        }
+        else 
+        {
+            System.out.println(String.format("Card %s is not valid card ID.", trav));
+        }
+            
     }
     
-//     // provide the code here
-//     private void updateCredits()
-//     {
-//     }
-//     
-//     // provide the code here
-//     private void goHome()
-//     {
-//     }
-//     
-//     // provide the code here
-//     private void convertPts()
-//     {
-//     }
-//     
-//     // provide the code here
-//     private void evacuate()
-//     {
-//     }
+    /**
+     * Tops up credits if it is a valid card ID
+     */
+    private void updateCredits()
+    {
+        System.out.println("Enter card id");
+        int cardId = reader.nextInt();
+        reader.nextLine();
+        if (wayward.assertValidCard(cardId))
+        {
+            Card cardObj = wayward.getCard(cardId);
+            System.out.println(String.format("This card currently has %s " +
+            " credits. How many credits would you like to add?", cardObj.getCredits()));
+            int credits = reader.nextInt();
+            reader.nextLine();
+            wayward.topUpCredits(cardId, credits);
+            System.out.println(String.format("Top up successful. This card now has %s " +
+            " credits.", cardObj.getCredits()));
+        }
+        else
+        {
+            System.out.println(String.format("Card %s is not valid card ID.", cardId));
+        }
+    }
+    
+    private void goHome()
+    {
+        System.out.println("Enter card id");
+        int cardId = reader.nextInt();
+        reader.nextLine();
+        if (wayward.assertValidCard(cardId))
+        {
+            wayward.moveHome(cardId);
+            System.out.println("Card successfully moved to the 'Home' world.");
+        }
+        else
+        {
+            System.out.println(String.format("Card %s is not valid card ID.", cardId));
+        }
+    }
+   
+    private void convertPts()
+    {
+        System.out.println("Enter card id");
+        int cardId = reader.nextInt();
+        reader.nextLine();
+        if (wayward.assertValidCard(cardId))
+        {
+            Card cardObj = wayward.getCard(cardId);
+            if (wayward.assertBusinessCard(cardObj))
+            {
+                wayward.convertPoints(cardId);
+                System.out.println(String.format("Converted loyalty points to credits. New balance is %s credit(s) "+
+                " %s loyalty point(s).", cardObj.getCredits(), ((Business) cardObj).getLoyaltyPoints()));
+            }
+            else
+            {
+                System.out.println(String.format("Card %s is not a Business card.", cardId));
+            }
+        }
+        else
+        {
+            System.out.println(String.format("Card %s is not valid card ID.", cardId));
+        }
+    }
+
+    private void evacuate()
+    {
+        wayward.evacuateAll();
+        System.out.println("All cards evacuated and now on the 'Home' world.");
+    }
     
     public static void main(String[] args)
     {

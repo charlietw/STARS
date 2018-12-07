@@ -202,7 +202,7 @@ public class ResortManager implements ResortControl
             cardObj.enterShuttle(); // handles the logic in the relevant class
             sourceWorld.removeCard(cardObj);
             destWorld.addCard(cardObj);
-            System.out.println("Journey completed successfully.");
+            return "Journey completed successfully.";
         }
         return reasons;
 
@@ -211,41 +211,130 @@ public class ResortManager implements ResortControl
      
     // These methods are for Task 6 only and not required for the Demonstration 
     // If you choose to implement them, uncomment the following code    
-    // /** Allows a card to top up their credits.This method is not concerned with 
-     // *  the cost of a credit as currency and prices may vary between resorts.
-     // *  @param id the id of the card toping up their credits
-     // *  @param creds the number of credits purchased to be added to cards information
-     // */
-    // public void topUpCredits(int id, int creds);
-    
-    // /** Moves a card directly back to the home world without affecting credits
-     // *  and not using existing shuttles
-     // */
-    // public void moveHome(int id);
-  
-    // /** Converts a business card's loyalty points into credits
-     // * @param tr the id of the card whose points are to be converted
-     // */
-    // public void convertPoints(int id);
-    
-    // /** In an emergency, evacuates all cards directly back to the home world without 
-     // * affecting credits or other information and not using existing shuttles
-     // */
-    // public void evacuateAll();
-   
-    
-    
-    //***************private methods**************
-    
-    private boolean assertValidCardAndWorld(int cardId, String shtlCode)
+    /** Allows a card to top up their credits.This method is not concerned with 
+     *  the cost of a credit as currency and prices may vary between resorts.
+     *  
+     *  N.B. because this, 'moveHome' and 'convertPoints' are all mutators 
+     *  which return 'void', error checking has been completed on this side
+     *  and the client side; no error message can be returned from the functions, and 
+     *  it cannot be assumed that the user will be using a CLI to access these and
+     *  therefore see any prints to screen.
+     *  
+     *  @param id the id of the card toping up their credits
+     *  @param creds the number of credits purchased to be added to cards information
+     */
+    public void topUpCredits(int id, int creds)
     {
-        Card cardObj = getCard(cardId); // translate the 'trId' integer to a card object
-        Shuttle shuttleObj = getShuttle(shtlCode); // translate the 'shtlCode' string to a shuttle object
-        if (cardObj == null || shuttleObj == null) // if either of these are true then return false.
+        if (assertValidCard(id)) // only do this if it is valid, otherwise do nothing
+        {
+            Card cardObj = getCard(id);
+            cardObj.addCredits(creds);
+        }
+    }
+    
+    
+    /** Moves a card directly back to the home world without affecting credits
+     *  and not using existing shuttles
+     */
+    public void moveHome(int id)
+    {
+        if (assertValidCard(id)) // only do this if it is valid, otherwise do nothing
+        {
+            Card cardObj = getCard(id);
+            String worldStr = findCard(id); // gets the name of the world the card is currently on
+            World worldObj = getWorldFromName(worldStr); // gets the world object from that string
+            // could alternatively be:
+            // World worldObj = getWorldFromName(findCard(id));
+            worldObj.removeCard(cardObj); // removes the card from the ArrayList
+            World homeWorld = getWorldFromId(0); // gets the home world
+            homeWorld.addCard(cardObj); // adds the card to the home world
+        }
+    }
+  
+    /** Converts a business card's loyalty points into credits
+     * @param tr the id of the card whose points are to be converted
+     */
+    public void convertPoints(int id)
+    {
+        if (assertValidCard(id)) // only do this if it is valid, otherwise do nothing
+        {
+            Card cardObj = getCard(id);
+            if (assertBusinessCard(cardObj)) // to avoid crashes at runtime
+            {
+                ((Business) cardObj).convertLoyalty(); // safely downcast the 'Card' object to a 'Business' object
+                // N.B. to actually get the object rather than just call the method:
+                // Business businessCardObj = (Business) cardObj;
+            }
+        }
+    }
+    
+    /** In an emergency, evacuates all cards directly back to the home world without 
+     * affecting credits or other information and not using existing shuttles
+     */
+    public void evacuateAll()
+    {
+        clearAllCards();
+        allCardsHome();
+    }
+   
+    /**
+     * Returns 'true' if the card is on the system, otherwise return 'false'
+     * @param cardId - an integer representing a card
+     * @return 'true' if the card is on the system, otherwise return 'false'
+     */
+    public boolean assertValidCard(int cardId)
+    {
+        Card cardObj = getCard(cardId);
+        if (cardObj == null)
         {
             return false;
         }
         return true;
+    }
+
+    /**
+     * Returns 'true' if the card is of the specified type, otherwise 'false'
+     * @param cardObj - a string representing the type of card required
+     * @return 'true' if the card is of the specified type, otherwise 'false'
+     */
+    public boolean assertBusinessCard(Card cardObj)
+    {
+        if (cardObj instanceof Business)
+        {
+            return true;
+        }
+        return false;
+    }
+    
+    /**
+     * Returns 'true' if the shuttle is on the system, otherwise return 'false'
+     * @param shtlCode - a string representing a shuttle code
+     * @return 'true' if the shuttle is on the system, otherwise return 'false'
+     */
+    public boolean assertValidShuttle(String shtlCode)
+    {
+        Shuttle shuttleObj = getShuttle(shtlCode);
+        if (shuttleObj == null)
+        {
+            return false;
+        }
+        return true;
+    }
+
+    
+    /**
+     * Combines 'assertValidCard' and 'assertValidShuttle' functions, returning 'true' if they are both true, otherwise 'false'.
+     * @param cardId - an integer representing a card
+     * @param shtlCode - a string representing a shuttle code
+     * @return 'true' if they are both true, otherwise 'false'.
+     */
+    public boolean assertValidCardAndWorld(int cardId, String shtlCode)
+    {
+        if (assertValidCard(cardId) && assertValidShuttle(shtlCode)) // if either of these are true then return false.
+        {
+            return true;
+        }
+        return false;
     }
     
     private void loadWorlds()
@@ -303,8 +392,6 @@ public class ResortManager implements ResortControl
         cards.add(sol);
         cards.add(tel);
         allCardsHome(); // Sends all the cards to the home world to start with
-
-        
     }
     
     /**
@@ -316,6 +403,17 @@ public class ResortManager implements ResortControl
         for(Card temp: cards)
         {
             homeWorld.addCard(temp);
+        }
+    }
+
+    /**
+     * Clears all cards from all worlds.
+     */
+    private void clearAllCards()
+    {
+        for(World temp: worlds)
+        {
+            temp.removeAllCards();
         }
     }
 
@@ -336,8 +434,8 @@ public class ResortManager implements ResortControl
         return returnCard;
     }
     
-    /** Returns the card with the card id specified by the parameter
-     * @return the card with the specified name
+    /** Returns the world with the world id specified by the parameter
+     * @return the world with the specified name
      **/
     public World getWorldFromId(int id)
     {

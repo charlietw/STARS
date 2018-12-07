@@ -12,7 +12,7 @@ import java.util.*;
  */
 public class GameGUI 
 {
-    private ResortControl waywd; //= new ResortManager("Wayward Asteroids");
+    private ResortControl waywd = new ResortManager("Wayward Asteroids");
     private JFrame myFrame = new JFrame("Game GUI");
     private Container contentPane = myFrame.getContentPane();
     private JTextArea listing = new JTextArea();

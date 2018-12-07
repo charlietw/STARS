@@ -12,6 +12,7 @@ public class MyTester
      */
     private void doTest1()
     {
+        System.out.println("\n****** doTest1() ******\n");
         System.out.println("****** All world details, including cards ******");
         System.out.println(testResort.toString());
     }
@@ -21,6 +22,7 @@ public class MyTester
      */
     private void doTest2()
     {
+        System.out.println("\n****** doTest2() ******\n");
         System.out.println("****** All card details ******");
         System.out.println(testResort.getAllCardsOnAllWorlds());
     }
@@ -30,6 +32,7 @@ public class MyTester
      */
     private void doTest3()
     {
+        System.out.println("\n****** doTest3() ******\n");
         System.out.println("****** All cards on 'Home' world ******");
         System.out.println(testResort.getAllCardsOnWorld("Home"));
         System.out.println("****** All cards on 'madeUp' world ******");
@@ -41,6 +44,7 @@ public class MyTester
      */
     private void doTest4()
     {
+        System.out.println("\n****** doTest4() ******\n");
         System.out.println("****** 'findCard' with input '1001' ******");
         System.out.println(testResort.findCard(1001));
         System.out.println("****** 'findCard' with input '1' ******");
@@ -55,6 +59,7 @@ public class MyTester
         int olekCredits;
         
         // Testing valid inputs
+        System.out.println("\n****** doTest5() ******\n");
         System.out.println("****** 'canTravel' with input '1001' (real) and 'ABC1' (real) ******");
         System.out.println(testResort.canTravel(1001, "ABC1"));
         System.out.println("****** 'canTravel' with input '1001' (real) and 'AAAA' (not real) ******");
@@ -105,6 +110,7 @@ public class MyTester
      */
     public void doTest6()
     {
+        System.out.println("\n****** doTest6() ******\n");
         System.out.println("Testing with invalid input:");
         System.out.println("****** 'travel' with input '1002' and 'ABC1' (real) ******");
         System.out.println(testResort.travel(1002, "ABC1"));
@@ -139,13 +145,50 @@ public class MyTester
     }
     
     /**
-     * Tests card functionality
+     * Tests option seven on the menu (top up credits)
      */
-    public void doCardTests()
+    public void doTest7()
     {
-        
+        System.out.println("\n****** doTest7() ******\n");
+        Card olek = testResort.getCard(1003);
+        System.out.println("Credits on card ID 1003: " + olek.getCredits());
+        System.out.println("Adding 3 credits...");
+        testResort.topUpCredits(1003, 3);
+        System.out.println("Credits on card ID 1003: " + olek.getCredits());
+        System.out.println("Testing with invalid ID to ensure it doesn't crash...");
+        testResort.topUpCredits(10, 3);
+        System.out.println("... still running.");
     }
-    
+
+    /**
+     * Tests option eight on the menu (move home)
+     */
+    public void doTest8()
+    {
+        System.out.println("\n****** doTest8() ******\n");
+        System.out.println("Card ID 1003 location: " + testResort.findCard(1003));
+        testResort.travel(1003, "ABC1");
+        System.out.println("Card ID 1003 location: " + testResort.findCard(1003));
+        System.out.println("Calling 'moveHome(1003)'...");
+        testResort.moveHome(1003);
+        System.out.println("Card ID 1003 location: " + testResort.findCard(1003));
+    }
+
+    /**
+     * Tests option nine on the menu (convert loyalty to credits)
+     */
+    public void doTest9()
+    {
+        System.out.println("\n****** doTest9() ******\n");
+        Card cardObj = testResort.getCard(1001);
+        System.out.println(String.format("Current loyalty points/credits: %s / %s",((Business) cardObj).getLoyaltyPoints(), cardObj.getCredits()));
+        System.out.println("Converting loyalty points...");
+        testResort.convertPoints(1002); // should do nothing (but not crash)
+        testResort.convertPoints(1000); // should do nothing (but not crash)
+        testResort.convertPoints(1001);
+        System.out.println(String.format("New loyalty points/credits: %s / %s",((Business) cardObj).getLoyaltyPoints(), cardObj.getCredits()));
+    }
+   
     
     public static void main(String[] args)
     {
@@ -155,7 +198,10 @@ public class MyTester
         //xx.doTest3();
         //xx.doTest4();
         //xx.doTest5();
-        xx.doTest6();
+        //xx.doTest6();
+        xx.doTest7();
+        xx.doTest8();
+        xx.doTest9();
         
     }
 }

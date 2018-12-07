@@ -12,16 +12,11 @@ public class Staff extends Card
     private int journeyScore;
 
     public Staff(String name, int employeeNumber, String department)
-    /* 
-     * We already know several facts about the Staff cards, notably:
-     * - The 'deduct shuttle price' is always 0
-     * - The rating is always 10
-     */
     { 
         super(name, 10, 0);
         this.employeeNumber = employeeNumber;
         this.department = department;
-        journeyScore = 0; // No option to set the initial journey score.
+        this.journeyScore = 0; // No option to set the initial journey score.
     }
     
     public int getEmployeeNumber()

@@ -134,11 +134,7 @@ public class World
     {
         if (cardOnWorld(cardObj.getId()) == false)
         {
-            cardsOnWorld.add(0, cardObj); // adds the card to the list of cards on the world
-        }
-        else
-        {
-            System.out.println("Card is already on this world, so cannot add it.");
+            cardsOnWorld.add(0, cardObj); // adds the card to the list of cards on the world, otherwise do nothing
         }
             
     }
@@ -151,13 +147,16 @@ public class World
     {
         if (cardOnWorld(cardObj.getId()) == true)
         {
-            cardsOnWorld.remove(cardObj); // removes the card from the list of cards on the world
+            cardsOnWorld.remove(cardObj); // removes the card from the list of cards on the world, otherwise do nothing
         }
-        else
-        {
-            System.out.println("Card is not on this world, so cannot remove it.");
-        }
-            
+    }
+    
+    /**
+     * Removes all cards from the world
+     */
+    public void removeAllCards()
+    {
+        cardsOnWorld.clear();
     }
         
         
