@@ -12,13 +12,14 @@ import java.util.*;
  */
 public class GameGUI 
 {
-    private ResortControl waywd = new ResortManager("Wayward Asteroids");
+    private ResortManager waywd = new ResortManager("Wayward Asteroids");
     private JFrame myFrame = new JFrame("Game GUI");
     private Container contentPane = myFrame.getContentPane();
     private JTextArea listing = new JTextArea();
     private JLabel codeLabel = new JLabel ();
     private JButton btnAll = new JButton("Show Resort");
     private JButton btnCards = new JButton("Show Cards");
+    private JButton btnFind = new JButton("Find Card");
     private JButton btnClear = new JButton("Clear");
     private JButton btnQuit = new JButton("Quit");
     private JPanel panelEast = new JPanel();
@@ -41,17 +42,26 @@ public class GameGUI
         listing.setVisible(false);
         contentPane.add(panelEast, BorderLayout.EAST);
         // set panel layout and add components
-        panelEast.setLayout(new GridLayout(4,1));
+        panelEast.setLayout(new GridLayout(5,1));
+        
         panelEast.add(btnAll);
-        btnClear.addActionListener(new AllBtnHandler());
+        btnAll.addActionListener(new AllBtnHandler());
+        
         panelEast.add(btnCards);
-        btnClear.addActionListener(new CardsBtnHandler());
+        btnCards.addActionListener(new CardsBtnHandler());
+        
+        panelEast.add(btnFind);
+        btnFind.addActionListener(new FindItemHandler());
+        
         panelEast.add(btnClear);
         btnClear.addActionListener(new ClearBtnHandler());
+        
         panelEast.add(btnQuit);
-        btnClear.addActionListener(new QuitBtnHandler());
+        btnQuit.addActionListener(new QuitBtnHandler());
+        
         btnAll.setVisible(true);
         btnCards.setVisible(true);
+        btnFind.setVisible(true);
         btnClear.setVisible(true);
         btnQuit.setVisible(true);
         // building is done - arrange the components and show        
@@ -82,6 +92,10 @@ public class GameGUI
         JMenuItem itmFind = new JMenuItem("Find a card");
         itmFind.addActionListener(new FindItemHandler());
         menuFile.add(itmFind);
+
+        JMenuItem moveCard = new JMenuItem("Move a card");
+        moveCard.addActionListener(new MoveItemHandler());
+        menuFile.add(moveCard);
                 
     }
 
@@ -118,6 +132,34 @@ public class GameGUI
             JOptionPane.showMessageDialog(myFrame,result);    
         }
     }
+
+    private class MoveItemHandler implements ActionListener
+    {
+        public void actionPerformed(ActionEvent e) 
+        { 
+            String result = "";
+            String crd = JOptionPane.showInputDialog("Card ?: ");
+            int trav = Integer.parseInt(crd);
+            String shuttle = JOptionPane.showInputDialog("Shuttle ?: ");
+            int card = Integer.parseInt(crd);
+            if (waywd.assertValidCard(trav))
+            {
+                if (waywd.assertValidShuttle(shuttle))
+                {
+                    result = waywd.travel(trav,shuttle);
+                }
+                else
+                {
+                    result = String.format("%s is not valid shuttle.", shuttle);
+                }
+            }
+            else 
+            {
+                result = String.format("Card %s is not valid card ID.", trav);
+            }
+            JOptionPane.showMessageDialog(myFrame,result);
+        }
+    }
     
     private class AllBtnHandler implements ActionListener
     {
@@ -146,7 +188,6 @@ public class GameGUI
         public void actionPerformed(ActionEvent e) 
         {            
             listing.setVisible(false);
-            btnClear.setVisible(false);
         }
     }
     
@@ -154,8 +195,7 @@ public class GameGUI
     {
         public void actionPerformed(ActionEvent e) 
         {            
-            listing.setVisible(false);
-            btnClear.setVisible(false);
+            System.exit(0);
         }
     }
 }
