@@ -22,6 +22,14 @@ public class Shuttle
      */
     private int destination;
 
+    /**
+     * Constructor for 'Shuttle' class
+     * @param code - The code that this shuttle is referenced by
+     * @param origin - An integer representing the number of the world
+     * that this shuttle starts at
+     * @param destination - An integer representing the number of the world
+     * that this shuttle ends at
+     */
     public Shuttle(String code, int origin, int destination)
     {
         this.code = code;

@@ -1,7 +1,9 @@
 #BlueJ class context
 comment0.target=InheritanceTest
+comment0.text=\r\n\ A\ class\ to\ test\ and\ demonstrate\ polymorphism\ and\ inheritance\r\n\ \r\n\ @author\ C.\ Wren\ \r\n\ @version\ 03/12/2018\r\n
 comment1.params=
 comment1.target=void\ doTests()
+comment1.text=\r\n\ Sets\ up\ and\ runs\ the\ relevant\ tests\ to\ display\ inheritance.\r\n
 comment2.params=args
 comment2.target=void\ main(java.lang.String[])
 numComments=3

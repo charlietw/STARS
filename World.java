@@ -28,10 +28,18 @@ public class World
     private int capacity;
     
     /**
-     * Collection of cards currently on the world, referenced by their ID
+     * Collection of cards currently on the world
      */
     private ArrayList<Card> cardsOnWorld;
 
+    /**
+     * Constructor for 'World' class
+     * @param number - Number of the world
+     * @param name - name of the world
+     * @param rating - the luxury rating required to travel to the world
+     * @param capactity - the maximum number of cards which can be on this
+     * world at a time
+     */
     public World(int number, String name, int rating, int capacity)
     {
         this.number = number;

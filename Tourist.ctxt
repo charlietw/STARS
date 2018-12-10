@@ -1,15 +1,19 @@
 #BlueJ class context
 comment0.target=Tourist
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ Tourist\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ Tourist\ class,\ extending\ the\ 'Card'\ class.\r\n\ \r\n\ @author\ C.\ Wren\r\n\ @version\ 03/12/2018\r\n
 comment1.params=name\ rating\ credits\ citizenship
 comment1.target=Tourist(java.lang.String,\ int,\ int,\ java.lang.String)
+comment1.text=\r\n\ Constructor\ for\ 'Tourist'\ class.\ \r\n\ @param\ name\ -\ Name\ of\ the\ owner\ of\ the\ card\r\n\ @param\ rating\ -\ the\ luxury\ rating\ of\ the\ card\r\n\ @param\ credits\ -\ the\ number\ of\ credits\ to\ initially\ set\ the\ card\ up\ with\r\n\ @param\ citizenship\ -\ the\ citizenship\ of\ the\ owner\ of\ the\ card\r\n
 comment2.params=
 comment2.target=java.lang.String\ getCitizenship()
+comment2.text=\r\n\ Returns\ the\ citizenship\ of\ the\ owner\ of\ the\ card\r\n\ @return\ the\ citizenship\ of\ the\ owner\ of\ the\ card\r\n
 comment3.params=
 comment3.target=void\ enterShuttle()
+comment3.text=\r\n\ Reduces\ the\ credits\ by\ four.\ To\ be\ called\ when\ entering\ shuttle.\r\n
 comment4.params=
 comment4.target=boolean\ hasEnoughCredits()
 comment4.text=\r\n\ Returns\ true\ if\ the\ card\ has\ enough\ credits\ to\ make\ a\ journey.\r\n\ @return\ true\ if\ the\ card\ has\ enough\ credits\ to\ make\ a\ journey.\r\n
 comment5.params=
 comment5.target=java.lang.String\ toString()
+comment5.text=\r\n\ Returns\ a\ string\ containing\ details\ of\ the\ tourist\ card.\r\n\ @return\ a\ string\ containing\ details\ of\ the\ tourist\ card.\r\n
 numComments=6

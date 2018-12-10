@@ -7,10 +7,17 @@ import java.util.*;
  */
 public class ResortUI
 {
-    
+    /**
+     * A 'Scanner' object for interacting with the application via CLI
+     */
     private Scanner reader = new Scanner(System.in);
+    /**
+     * A ResortManager object
+     */
     private ResortManager wayward = new ResortManager("Wayward asteroids");
-
+    /**
+     * Runs the UI
+     */
     private void runUI()
     {   
         int choice = getOption();        
@@ -33,7 +40,9 @@ public class ResortUI
         System.out.println("\nThank-you");
     }
     
-    
+    /**
+     * Outputs the relevant options to the screen
+     */
     private int getOption()
     {
        System.out.println("What would you like to do ?");
@@ -160,6 +169,10 @@ public class ResortUI
         }
     }
     
+    /**
+     * Sends a card to the home world without using shuttles or 
+     * calling 'enterShuttle' method
+     */
     private void goHome()
     {
         System.out.println("Enter card id");
@@ -176,6 +189,10 @@ public class ResortUI
         }
     }
    
+    /**
+     * Converts the loyalty points of a business card to credits
+     * (after first checking if it is a business card)
+     */
     private void convertPts()
     {
         System.out.println("Enter card id");
@@ -201,6 +218,9 @@ public class ResortUI
         }
     }
 
+    /**
+     * Moves all cards to the home world without using shuttles
+     */
     private void evacuate()
     {
         wayward.evacuateAll();

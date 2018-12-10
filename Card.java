@@ -33,6 +33,12 @@ abstract class Card
      */
     private String name;
 
+    /**
+     * Constructor for 'Card' class
+     * @param name - Name of the owner of the card
+     * @param rating - the luxury rating of the card
+     * @param credits - the number of credits to initially set the card up with
+     */
     public Card(String name, int rating, int credits)
     {
         this.name = name;
@@ -98,8 +104,9 @@ abstract class Card
     
     /**
      * Returns true if the card has enough credits to make a journey.
-     * If not defined in the subclass then the default behaviour should be
-     * to allow the journey, for example in the case of staff.
+     * If not defined in the subclass then it was decided that
+     * the default behaviour should be to allow the journey, for
+     * example in the case of staff.
      * @return true if the card has enough credits to make a journey.
      */
     public boolean hasEnoughCredits()
@@ -107,8 +114,11 @@ abstract class Card
         return true;
     }
     
-   
-    abstract void enterShuttle(); // need this even though we cannot specify what a 'card' should do as it is abstract.
+    /**
+     * Abstract method for 'enterShuttle' not defined here but required as 
+     * each card will require different logic when entering a shuttle
+     */   
+    abstract void enterShuttle(); 
     
     /**
      * Prints details of the card to the screen 

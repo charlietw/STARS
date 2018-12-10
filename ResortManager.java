@@ -1,21 +1,39 @@
 import java.util.*;
 
-/**This class implements the ResortControl interface
+/**
+ * This class implements the ResortControl interface
  *
  * @author A.A.Marczyk 
  * @version 09/11/18
  * 
+ * Edits:
  * @author C. Wren
  * @version 04/12/2018
  * 
  **/
 public class ResortManager implements ResortControl
 {
+    /**
+     * Collection of worlds in the resort
+     */
     private ArrayList<World> worlds;
+    /**
+     * Collection of cards in the resort
+     */
     private ArrayList<Card> cards;
-    private ArrayList<Shuttle> shuttles; // creating the ArrayLists to store the data
+    /**
+     * Collection of shuttles in the resort
+     */
+    private ArrayList<Shuttle> shuttles;
+    /**
+     * The name of the resort
+     */
     private String location;
 
+    /**
+     * Constructor for 'ResortManager' class
+     * @param location - the name of the resort being created
+     */
     public ResortManager(String location)
     {
         worlds = new ArrayList<World>();
@@ -42,7 +60,8 @@ public class ResortManager implements ResortControl
         return details;
     }
 
-    /**Returns a String representation of all the cards on all worlds
+    /**
+     * Returns a String representation of all the cards on all worlds
      * @return a String representation of all cards on all worlds
      **/
     public String getAllCardsOnAllWorlds()
@@ -56,7 +75,8 @@ public class ResortManager implements ResortControl
     }
     
     
-    /**Returns the name of the world which contains the specified card or null
+    /**
+     * Returns the name of the world which contains the specified card or null
      * @param tr - the specified card
      * @return the name of the World which contains the card, or null
      **/
@@ -75,7 +95,8 @@ public class ResortManager implements ResortControl
     }
     
     
-    /** Given the name of a world, returns the world id number
+    /** 
+     * Given the name of a world, returns the world id number
      * or -1 if world does not exist
      * @param name of world
      * @return id number of world
@@ -95,7 +116,8 @@ public class ResortManager implements ResortControl
     }
     
                 
-    /**Returns a String representation of all the cards on specified world
+    /**
+     * Returns a String representation of all the cards on specified world
      * @param world - name of world
      * @return a String representation of all cards on specified world
      **/
@@ -114,7 +136,8 @@ public class ResortManager implements ResortControl
         return message;
     }
     
-    /**Returns true if a Card is allowed to move using the shuttle, false otherwise
+    /**
+     * Returns true if a Card is allowed to move using the shuttle, false otherwise
      * A move can be made if:  
      * the rating of the card  >= the rating of the destination world
      * AND the destination world is not full
@@ -150,7 +173,8 @@ public class ResortManager implements ResortControl
     }
     
 
-    /**Returns the result of a card requesting to move by Shuttle.
+    /**
+     * Returns the result of a card requesting to move by Shuttle.
      * A move will be successful if:  
      * the luxury rating of the card  >= the luxury rating of the destination world
      * AND the destination world is not full
@@ -208,10 +232,9 @@ public class ResortManager implements ResortControl
 
     }
     
-     
-    // These methods are for Task 6 only and not required for the Demonstration 
-    // If you choose to implement them, uncomment the following code    
-    /** Allows a card to top up their credits.This method is not concerned with 
+    
+    /** 
+     * Allows a card to top up their credits.This method is not concerned with 
      *  the cost of a credit as currency and prices may vary between resorts.
      *  
      *  N.B. because this, 'moveHome' and 'convertPoints' are all mutators 
@@ -233,8 +256,9 @@ public class ResortManager implements ResortControl
     }
     
     
-    /** Moves a card directly back to the home world without affecting credits
-     *  and not using existing shuttles
+    /** 
+     * Moves a card directly back to the home world without affecting credits
+     * and not using existing shuttles
      */
     public void moveHome(int id)
     {
@@ -251,7 +275,8 @@ public class ResortManager implements ResortControl
         }
     }
   
-    /** Converts a business card's loyalty points into credits
+    /** 
+     * Converts a business card's loyalty points into credits
      * @param tr the id of the card whose points are to be converted
      */
     public void convertPoints(int id)
@@ -268,7 +293,8 @@ public class ResortManager implements ResortControl
         }
     }
     
-    /** In an emergency, evacuates all cards directly back to the home world without 
+    /** 
+     * In an emergency, evacuates all cards directly back to the home world without 
      * affecting credits or other information and not using existing shuttles
      */
     public void evacuateAll()
@@ -337,6 +363,9 @@ public class ResortManager implements ResortControl
         return false;
     }
     
+    /**
+     * Sets up five worlds according to the specification
+     */
     private void loadWorlds()
     {
         World home = new World(0, "Home", 0, 1000);
@@ -351,6 +380,9 @@ public class ResortManager implements ResortControl
         worlds.add(4, solo);
     }
     
+    /**
+     * Sets up the shuttles to travel between these worlds
+     */
     private void setUpShuttles()
     {
         Shuttle abc1 = new Shuttle("ABC1", 0, 1);
@@ -371,6 +403,10 @@ public class ResortManager implements ResortControl
         shuttles.add(hjk7);
     }
     
+    /**
+     * Sets up nine cards to interact with the worlds and shuttles
+     * according to the specification
+     */
     private void loadCards()
     {
         Tourist lynn = new Tourist("Lynn", 5, 10, "Earth");
@@ -417,7 +453,8 @@ public class ResortManager implements ResortControl
         }
     }
 
-    /** Returns the card with the card id specified by the parameter
+    /** 
+     * Returns the card with the card id specified by the parameter
      * @return the card with the specified name
      **/
     public Card getCard(int id)
@@ -434,7 +471,8 @@ public class ResortManager implements ResortControl
         return returnCard;
     }
     
-    /** Returns the world with the world id specified by the parameter
+    /** 
+     * Returns the world with the world id specified by the parameter
      * @return the world with the specified name
      **/
     public World getWorldFromId(int id)
@@ -451,7 +489,8 @@ public class ResortManager implements ResortControl
         return returnWorld;
     }
     
-    /** Returns the world with the name specified by the parameter
+    /**
+     * Returns the world with the name specified by the parameter
      * @return the world with the specified name
      **/
     private World getWorldFromName(String worldName)
@@ -468,7 +507,8 @@ public class ResortManager implements ResortControl
         return returnWorld;
     }
     
-    /** Returns the shuttle with the name specified by the parameter
+    /** 
+     * Returns the shuttle with the name specified by the parameter
      * @return the shuttle with the specified name
      **/
     private Shuttle getShuttle(String shut)

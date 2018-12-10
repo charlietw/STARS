@@ -193,12 +193,12 @@ public class MyTester
     public static void main(String[] args)
     {
         MyTester xx = new MyTester();
-        //xx.doTest1();
-        //xx.doTest2();
-        //xx.doTest3();
-        //xx.doTest4();
-        //xx.doTest5();
-        //xx.doTest6();
+        xx.doTest1(); // can comment and uncomment these as required
+        xx.doTest2();
+        xx.doTest3();
+        xx.doTest4();
+        xx.doTest5();
+        xx.doTest6();
         xx.doTest7();
         xx.doTest8();
         xx.doTest9();

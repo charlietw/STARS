@@ -1,16 +1,22 @@
 #BlueJ class context
 comment0.target=Staff
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ Staff\ here.\r\n\r\n\ @author\ (your\ name)\r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ Staff\ class,\ extending\ the\ 'Card'\ class.\r\n\ \r\n\ @author\ C.\ Wren\r\n\ @version\ 03/12/2018\r\n
 comment1.params=name\ employeeNumber\ department
 comment1.target=Staff(java.lang.String,\ int,\ java.lang.String)
+comment1.text=\r\n\ Constructor\ for\ 'Staff'\ class.\ 'Rating'\ is\ always\ set\ to\ 10\r\n\ and\ 'credits'\ to\ 0.\r\n\ @param\ name\ -\ Name\ of\ the\ owner\ of\ the\ card\r\n\ @param\ employeeNumber\ -\ the\ employee\ number\ of\ the\ owner\r\n\ @param\ department\ -\ the\ department\ the\ employee\ works\ in\r\n
 comment2.params=
 comment2.target=int\ getEmployeeNumber()
+comment2.text=\r\n\ Returns\ the\ employee\ number\ of\ the\ owner\ of\ the\ card\r\n\ @return\ the\ employee\ number\ of\ the\ owner\ of\ the\ card\r\n
 comment3.params=
 comment3.target=java.lang.String\ getDepartment()
+comment3.text=\r\n\ Returns\ the\ department\ of\ the\ owner\ of\ the\ card\r\n\ @return\ the\ department\ of\ the\ owner\ of\ the\ card\r\n
 comment4.params=
 comment4.target=int\ getJourneyScore()
+comment4.text=\r\n\ Returns\ the\ current\ journey\ score\ for\ this\ card\r\n\ @return\ the\ current\ journey\ score\ for\ this\ card\r\n
 comment5.params=
 comment5.target=void\ enterShuttle()
+comment5.text=\r\n\ Increments\ the\ journey\ score.\ To\ be\ called\ when\ entering\ shuttle.\r\n
 comment6.params=
 comment6.target=java.lang.String\ toString()
+comment6.text=\r\n\ Returns\ a\ string\ containing\ details\ of\ the\ staff\ card.\r\n\ @return\ a\ string\ containing\ details\ of\ the\ staff\ card.\r\n
 numComments=7

@@ -2,6 +2,7 @@
 comment0.target=World
 comment1.params=number\ name\ rating\ capacity
 comment1.target=World(int,\ java.lang.String,\ int,\ int)
+comment1.text=\r\n\ Constructor\ for\ 'World'\ class\r\n\ @param\ number\ -\ Number\ of\ the\ world\r\n\ @param\ name\ -\ name\ of\ the\ world\r\n\ @param\ rating\ -\ the\ luxury\ rating\ required\ to\ travel\ to\ the\ world\r\n\ @param\ capactity\ -\ the\ maximum\ number\ of\ cards\ which\ can\ be\ on\ this\r\n\ world\ at\ a\ time\r\n
 comment10.params=cardObj
 comment10.target=void\ removeCard(Card)
 comment10.text=\r\n\ Removes\ a\ card\ from\ the\ world\r\n\ @param\ cardObj\ -\ the\ card\ object\ to\ remove\r\n

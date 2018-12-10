@@ -1,13 +1,15 @@
-
-/**
- * Write a description of class Tester here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
 import java.util.*;
+/**
+ * A class to test and demonstrate polymorphism and inheritance
+ * 
+ * @author C. Wren 
+ * @version 03/12/2018
+ */
 public class InheritanceTest
 {   
+    /**
+     * Sets up and runs the relevant tests to display inheritance.
+     */
     private void doTests()
     { 
         // Set up some test objects (as per appendix A)
@@ -32,9 +34,6 @@ public class InheritanceTest
         }
         
         System.out.println(nils.getEmployeeNumber()); // calling a method unique to the subclass 'staff'
-        
-        
-        
 
     }
      

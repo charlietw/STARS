@@ -2,6 +2,7 @@
 comment0.target=Shuttle
 comment1.params=code\ origin\ destination
 comment1.target=Shuttle(java.lang.String,\ int,\ int)
+comment1.text=\r\n\ Constructor\ for\ 'Shuttle'\ class\r\n\ @param\ code\ -\ The\ code\ that\ this\ shuttle\ is\ referenced\ by\r\n\ @param\ origin\ -\ An\ integer\ representing\ the\ number\ of\ the\ world\r\n\ that\ this\ shuttle\ starts\ at\r\n\ @param\ destination\ -\ An\ integer\ representing\ the\ number\ of\ the\ world\r\n\ that\ this\ shuttle\ ends\ at\r\n
 comment2.params=
 comment2.target=java.lang.String\ getCode()
 comment2.text=\r\n\ Returns\ a\ string\ of\ the\ code\ of\ the\ shuttle\r\n\ @return\ a\ string\ of\ the\ code\ of\ the\ shuttle\r\n
