@@ -1,5 +1,6 @@
 #BlueJ class context
 comment0.target=World
+comment0.text=\r\n\ Contains\ all\ of\ the\ relevant\ information\ about\ a\ world\r\n\r\n\ @author\ C.\ Wren\r\n\ @version\ 03/12/2018\r\n
 comment1.params=number\ name\ rating\ capacity
 comment1.target=World(int,\ java.lang.String,\ int,\ int)
 comment1.text=\r\n\ Constructor\ for\ 'World'\ class\r\n\ @param\ number\ -\ Number\ of\ the\ world\r\n\ @param\ name\ -\ name\ of\ the\ world\r\n\ @param\ rating\ -\ the\ luxury\ rating\ required\ to\ travel\ to\ the\ world\r\n\ @param\ capactity\ -\ the\ maximum\ number\ of\ cards\ which\ can\ be\ on\ this\r\n\ world\ at\ a\ time\r\n

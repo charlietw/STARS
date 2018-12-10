@@ -1,10 +1,10 @@
+import java.util.*;
 /**
  * Contains all of the relevant information about a world
  *
  * @author C. Wren
  * @version 03/12/2018
  */
-import java.util.*;
 public class World 
 {
     /**

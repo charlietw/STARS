@@ -1,4 +1,3 @@
-
 /**
  * Tourist class, extending the 'Card' class.
  * 

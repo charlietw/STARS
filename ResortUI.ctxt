@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=ResortUI
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ ResortUI\ here.\r\n\ \r\n\ @author\ C.\ Wren\ \r\n\ @version\ 03/12/2018\r\n
+comment0.text=\r\n\ CLI\ access\ to\ the\ application.\r\n\ \r\n\ @author\ C.\ Wren\ \r\n\ @version\ 03/12/2018\r\n
 comment1.params=
 comment1.target=void\ runUI()
 comment1.text=\r\n\ Runs\ the\ UI\r\n

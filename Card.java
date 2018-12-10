@@ -1,4 +1,3 @@
-
 /**
  * Abstract class for the Tourist, Business and Staff cards
  * which contains the data which is common to all of them

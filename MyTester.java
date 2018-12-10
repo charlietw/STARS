@@ -1,8 +1,8 @@
 /**
- * Write a description of class Tester here.
+ * Tester class for the application.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author C. Wren 
+ * @version 03/12/2018
  */
 public class MyTester 
 {

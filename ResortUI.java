@@ -1,6 +1,6 @@
 import java.util.*;
 /**
- * Write a description of class ResortUI here.
+ * CLI access to the application.
  * 
  * @author C. Wren 
  * @version 03/12/2018
